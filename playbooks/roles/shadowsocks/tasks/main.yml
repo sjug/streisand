@@ -5,16 +5,22 @@
     value: 3
     state: present
 
-- name: Add the official Shadowsocks.org APT key
-  apt_key:
-    id: 1D27208A
-    data: "{{ item }}"
-  with_file: shadowsocks_org_signing.key
-
-- name: Add the Shadowsocks-libev repository
-  apt_repository:
-    repo: 'deb http://shadowsocks.org/{{ ansible_distribution|lower }} trusty main'
-    state: present
+    #- name: Install the Shadowsocks dependencies
+    #  apt:
+    #    name: "{{ item }}"
+    #    install_recommends: no
+    #  with_items: "{{ shadowsocks_dependencies }}"
+    #
+    #- name: Retrieve Shadowsocks-libev souce code
+    #  git:
+    #    repo: https://github.com/shadowsocks/shadowsocks-libev.git
+    #    dest: "{{ shadowsocks_compilation_directory }}"
+    #    version: "{{ shadowsocks_version }}"
+    #
+    #- name: Compile and install Shadowsocks-libev
+    #  shell: ./autogen.sh && ./configure && make -j {{ ansible_processor_cores }} && make install
+    #  args:
+    #    chdir: "{{ shadowsocks_compilation_directory }}"
 
 - name: Install shadowsocks-libev
   apt:

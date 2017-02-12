@@ -1,4 +1,25 @@
 ---
+shadowsocks_dependencies:
+  - autoconf
+  - automake
+  - build-essential
+  - libtool
+  - libssl-dev
+  - gawk
+  - debhelper
+  - dh-systemd
+  - init-system-helpers
+  - pkg-config
+  - asciidoc
+  - xmlto
+  - apg
+  - libpcre3-dev
+  - zlib1g-dev
+  - libev-dev
+  - libudns-dev
+  - libsodium-dev
+shadowsocks_version: "v3.0.1"
+shadowsocks_compilation_directory: "/usr/local/src/shadowsocks-libev"
 shadowsocks_location: "/etc/shadowsocks-libev"
 shadowsocks_password_file: "{{ shadowsocks_location }}/shadowsocks-password.txt"
 
