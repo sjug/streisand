@@ -1,6 +1,6 @@
 ---
 - name: "{{ project_signer }} signs the {{ project_name }} downloads. Import the correct GPG key."
-  command: gpg --keyserver x-hkp://pool.sks-keyservers.net --recv-keys {{ project_signing_key }}
+  command: gpg --keyserver hkps://hkps.pool.sks-keyservers.net --recv-keys {{ project_signing_key }}
   register: gpg_recv_keys_result
   until: gpg_recv_keys_result | success
   retries: 10
